@@ -28,32 +28,34 @@ let menus = ['Accueil', 'Une autre page']
 
 function createMenu(menuArray) {
     for (const item of menuArray) {
+        let link = document.createElement('a')
+        let slash =document.createElement('a');
+        slash.style.cursor = "none";
+        slash.innerText = '/'
+        slash.style.paddingRight = "18px";
+        link.href = '#';
+        link.style.paddingRight = "18px"
+        link.innerText = item;
         if (menuArray.indexOf(item) < 1 ) {
-            let link = document.createElement('a')
-            let slash =document.createElement('a');
-            slash.innerText = '/'
-            slash.style.paddingRight = "18px";
-            link.href = '#';
-            link.innerText = item;
-            link.style.paddingRight = "18px"
             nav.append(link)
-            nav.append(slash)
-            
-        } else {
-            let link = document.createElement('a')
-            link.href = '#';
-            link.innerText = item;
-            link.style.paddingRight = "18px"
+            nav.append(slash)            
+        } else {            
             nav.append(link)
         }
     } 
 }
-
 createMenu(menus);
-
 sousheader.appendChild(nav);
+
+let content = document.createElement('div');
+content.style.padding = "25px 45px"
+let paragraphContent = document.createElement("p");
+paragraphContent.innerText = "Ceci est un paragraph créé avec Javascript !"
+content.append(paragraphContent)
+
 
 
 
 document.body.appendChild(header);
 document.body.appendChild(sousheader);
+document.body.appendChild(content);
