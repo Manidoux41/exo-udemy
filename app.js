@@ -18,5 +18,42 @@ titre.style.fontSize = '50px';
 titre.textContent = 'Bienvenue';
 header.appendChild(titre);
 
+let sousheader = document.createElement('div');
+sousheader.style.backgroundColor = '#abdbe3';
+sousheader.style.padding = '55px'
+let nav = document.createElement('nav');
+nav.style.display = "flex";
+
+let menus = ['Accueil', 'Une autre page']
+
+function createMenu(menuArray) {
+    for (const item of menuArray) {
+        if (menuArray.indexOf(item) < 1 ) {
+            let link = document.createElement('a')
+            let slash =document.createElement('a');
+            slash.innerText = '/'
+            slash.style.paddingRight = "18px";
+            link.href = '#';
+            link.innerText = item;
+            link.style.paddingRight = "18px"
+            nav.append(link)
+            nav.append(slash)
+            
+        } else {
+            let link = document.createElement('a')
+            link.href = '#';
+            link.innerText = item;
+            link.style.paddingRight = "18px"
+            nav.append(link)
+        }
+    } 
+}
+
+createMenu(menus);
+
+sousheader.appendChild(nav);
+
+
 
 document.body.appendChild(header);
+document.body.appendChild(sousheader);
