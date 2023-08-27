@@ -47,7 +47,10 @@ function createMenu(menuArray) {
         }
     } 
 }
+
+/* Utilisation de la fonction pour afficher les menus */
 createMenu(menus);
+/* affectation de la navigation au sous-menu */
 sousheader.appendChild(nav);
 
 // Création du contenu principal
