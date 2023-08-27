@@ -28,24 +28,22 @@ sousheader.style.backgroundColor = '#abdbe3';
 sousheader.style.padding = '55px'
 let nav = document.createElement('nav');
 nav.style.display = "flex";
-let menus = ['Accueil', 'Une autre page']
+let menus = ['Accueil', 'Une autre page'];
 
 /* fonction qui gère l'affichage des menus */
 function createMenu(menuArray) {
     for (const item of menuArray) {
-        let link = document.createElement('a')
-        let slash =document.createElement('a');
-        slash.style.cursor = "none";
-        slash.innerText = '/'
-        slash.style.paddingRight = "18px";
+        let link = document.createElement('a');
         link.href = '#';
-        link.style.paddingRight = "18px"
+        link.style.paddingRight = "18px";
         link.innerText = item;
+        nav.append(link);
         if (menuArray.indexOf(item) < 1 ) {
-            nav.append(link)
-            nav.append(slash)            
-        } else {            
-            nav.append(link)
+            let slash =document.createElement('a');
+            slash.style.cursor = "none";
+            slash.innerText = '/';
+            slash.style.paddingRight = "18px";
+            nav.append(slash);            
         }
     } 
 }
@@ -54,11 +52,10 @@ sousheader.appendChild(nav);
 
 // Création du contenu principal
 let content = document.createElement('div');
-content.style.padding = "25px 45px"
+content.style.padding = "25px 45px";
 let paragraphContent = document.createElement("p");
-paragraphContent.innerText = "Ceci est un paragraph créé avec Javascript !"
-content.append(paragraphContent)
-
+paragraphContent.innerText = "Ceci est un paragraph créé avec Javascript !";
+content.append(paragraphContent);
 
 // Affichage des 3 éléments header, sous menu et content dans la page principale
 document.body.appendChild(header);
